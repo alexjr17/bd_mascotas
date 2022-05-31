@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class MascotaController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('can:mascotas.index')->only('index');
+        // $this->middleware('can:mascotas.create')->only('store');
+        // $this->middleware('can:mascotas.edit')->only('update', 'edit');
+        // $this->middleware('can:mascotas.detroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -94,7 +101,7 @@ class MascotaController extends Controller
         $mascota = Mascota::find($id);
         if ($mascota) {
             $mascota->delete();
-            return response()->json('se4 elimino con exito');
+            return response()->json('se elimino con exito');
         }        
     }
 }

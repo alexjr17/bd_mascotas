@@ -20,12 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum'])->group(function () {
 
-    Route::resource('user', UserController::class)->only(['index']);
+    Route::resource('users', UserController::class)->only(['index']);
+    Route::get('users/profile',[ UserController::class, 'profile']);
     Route::resource('mascotas', MascotaController::class)->only(['index', 'store', 'edit', 'update', 'destroy']);
     Route::resource('roles', RoleController::class)->only(['index','store', 'destroy']);
     Route::get('roles/{id}/permissions', [RoleController::class, 'permission']);
     Route::get('roles/permissions', [RoleController::class, 'permissions']);
     Route::put('roles/{id}/permissions', [RoleController::class, 'permissionsStore']);
+    Route::get('roles/mypermissions', [RoleController::class, 'myPermissions']);
 
 });
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,11 +12,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
+        $user = User::paginate(10)->get();
+        return response()->json($user);
+        
+    }
+    public function profile(Request $request) {
         return response()->json($request->user()->name);
     }
-
     /**
      * Show the form for creating a new resource.
      *

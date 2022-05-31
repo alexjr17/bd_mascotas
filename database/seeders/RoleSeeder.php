@@ -21,8 +21,8 @@ class RoleSeeder extends Seeder
         $role3 = Role::create(['name' => 'paseador']);
         $role4 = Role::create(['name' => 'resesion']);
 
-        Permission::create(['name' => 'dashboard',
-                            'description' => 'ver dasboard'])->syncRoles([$role1, $role2, $role3]);
+        Permission::create(['name' => 'dashboard.index',
+                            'description' => 'ver dashboard'])->syncRoles([$role1, $role2, $role3]);
 
         //////////////////////////////////
         //mascotas
@@ -55,5 +55,22 @@ class RoleSeeder extends Seeder
                             
         Permission::create(['name' => 'roles.destroy',
                             'description' => 'delete roles'])->syncRoles([$role1, $role4]);
+        
+        //////////////////////////////////
+        //users
+        //////////////////////////////////
+        
+        Permission::create(['name' => 'users.index',
+                            'description' => 'listar users'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'users.create',
+                            'description' => 'create users'])->syncRoles([$role1]);
+        
+        Permission::create(['name' => 'users.edit',
+                            'description' => 'editar users'])->syncRoles([$role1]);
+                            
+        Permission::create(['name' => 'users.destroy',
+                            'description' => 'delete users'])->syncRoles([$role1]);
+    
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -38,5 +39,10 @@ class RoleController extends Controller
             return response()->json(['role' => false]);
         }       
         
+    }
+    public function myPermissions(Request $request){
+        $user = $request->user()->roles;
+        $role = Role::with(['permissions'])->find($user[0]['id']);
+        return response()->json($role->permissions);
     }
 }
