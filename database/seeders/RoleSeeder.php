@@ -29,7 +29,7 @@ class RoleSeeder extends Seeder
         //////////////////////////////////
 
         Permission::create(['name' => 'mascotas.index',
-                            'description' => 'listar mascotas'])->syncRoles([$role1, $role2]);
+                            'description' => 'ver mascotas'])->syncRoles([$role1, $role2]);
 
         Permission::create(['name' => 'mascotas.create',
                             'description' => 'create mascotas'])->syncRoles([$role1, $role2]);
@@ -45,7 +45,7 @@ class RoleSeeder extends Seeder
         //////////////////////////////////
         
         Permission::create(['name' => 'roles.index',
-                            'description' => 'listar roles'])->syncRoles([$role1, $role4]);
+                            'description' => 'ver roles'])->syncRoles([$role1, $role4]);
 
         Permission::create(['name' => 'roles.create',
                             'description' => 'create roles'])->syncRoles([$role1, $role4]);
@@ -61,7 +61,7 @@ class RoleSeeder extends Seeder
         //////////////////////////////////
         
         Permission::create(['name' => 'users.index',
-                            'description' => 'listar users'])->syncRoles([$role1]);
+                            'description' => 'ver users'])->syncRoles([$role1]);
 
         Permission::create(['name' => 'users.create',
                             'description' => 'create users'])->syncRoles([$role1]);
